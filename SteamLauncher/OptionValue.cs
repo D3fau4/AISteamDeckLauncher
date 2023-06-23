@@ -110,7 +110,7 @@ public class OptionValue
 				StreamReader streamReader = new StreamReader(file);
 				while (!streamReader.EndOfStream)
 				{
-					string text = streamReader.ReadLine();
+					string? text = streamReader.ReadLine();
 					if (text.IndexOf("skip=") >= 0)
 					{
 						text = text.Replace("skip=", "");

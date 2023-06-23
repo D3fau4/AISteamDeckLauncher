@@ -1,9 +1,11 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics;
+using System.Drawing;
 using SteamLauncher;
+using static System.Reflection.Assembly;
 
 string PSYNC_EXE_FILE = "AI_TheSomniumFiles.exe";
 
-string ubicacion = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString();
+string ubicacion = Directory.GetParent(AppContext.BaseDirectory)!.ToString();
 string exe_path = Path.Combine(ubicacion, PSYNC_EXE_FILE);
 if (!File.Exists(exe_path))
     throw new FileNotFoundException($"No se ha encontrado {PSYNC_EXE_FILE}");
@@ -20,3 +22,7 @@ option.Value.bDebug = false;
 option.Value.bShowLauncher = false;
 option.Value.size = new Size(1280, 720); // Lo mismo funciona bien con la resolución normal.
 option.Save();
+
+Process proceso = new Process();
+proceso.StartInfo.FileName = exe_path;
+proceso.Start();
