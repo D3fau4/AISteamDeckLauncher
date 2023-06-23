@@ -3,8 +3,6 @@ using SteamLauncher;
 
 string PSYNC_EXE_FILE = "AI_TheSomniumFiles.exe";
 
-Console.WriteLine("Hello, World!");
-
 string ubicacion = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString();
 string exe_path = Path.Combine(ubicacion, PSYNC_EXE_FILE);
 if (!File.Exists(exe_path))
