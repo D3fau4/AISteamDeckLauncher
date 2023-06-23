@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Drawing;
 using SteamLauncher;
-using static System.Reflection.Assembly;
 
 string PSYNC_EXE_FILE = "AI_TheSomniumFiles.exe";
 
@@ -25,4 +24,5 @@ option.Save();
 
 Process proceso = new Process();
 proceso.StartInfo.FileName = exe_path;
+proceso.StartInfo.Arguments = option.GetArg();
 proceso.Start();
